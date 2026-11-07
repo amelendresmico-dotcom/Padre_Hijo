@@ -1,26 +1,34 @@
-import { Component, signal } from '@angular/core';
-import { Producto } from './models/product.model';
-import { ProductoCard } from './producto-card/producto-card';
+import { Component } from '@angular/core';
+import { Curso } from './models/curso.model';
+import { CursoCard } from './curso-card/curso-card';
 
 @Component({
-  imports: [ProductoCard],
+  imports: [CursoCard],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('Padre_Hijo');
-
-  productos: Producto[] = [
-    { id: 1, nombre: 'Cuaderno 1', precio: 12 },
-    { id: 2, nombre: 'Lapicero 2', precio: 3 },
-    { id: 3, nombre: 'Mochila 3', precio: 150 },
+  cursos: Curso[] = [
+    { id: 1, nombre: 'Angular desde cero', horas: 24, precio: 180 },
+    { id: 2, nombre: 'TypeScript práctico', horas: 18, precio: 140 },
+    { id: 3, nombre: 'Diseño web', horas: 30, precio: 220 },
   ];
-  cantidad = 0;
-  total = 0;
+  cursosInscritos: Curso[] = [];
 
-  agregarAlCarrito(p: Producto): void {
-    this.cantidad++;
-    this.total += p.precio;
+  get totalAPagar(): number {
+    return this.cursosInscritos.reduce((total, curso) => total + curso.precio, 0);
+  }
+
+  estaInscrito(cursoId: number): boolean {
+    return this.cursosInscritos.some((curso) => curso.id === cursoId);
+  }
+
+  inscribir(curso: Curso): void {
+    if (this.estaInscrito(curso.id)) {
+      return;
+    }
+
+    this.cursosInscritos.push(curso);
   }
 }

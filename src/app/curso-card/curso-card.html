@@ -1,0 +1,8 @@
+<article class="card">
+  <h2>{{ curso.nombre }}</h2>
+  <p>Duración: {{ curso.horas }} horas</p>
+  <p>Precio: Bs {{ curso.precio }}</p>
+  <button type="button" [disabled]="inscrito" (click)="alInscribirse()">
+    Inscribirme
+  </button>
+</article>

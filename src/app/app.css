@@ -33,7 +33,7 @@ body {
   color: #4f46e5;
 }
 
-.grid-productos {
+.grid-cursos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;

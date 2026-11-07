@@ -1,17 +1,18 @@
 <div class="container">
   <header class="header-cart">
-    <h1>Tienda</h1>
+    <h1>Cursos disponibles</h1>
     <div class="cart-info">
-      <span> Productos: {{ cantidad }}</span>
-      <span> Total: Bs{{ total }}</span>
+      <span>Inscritos: {{ cursosInscritos.length }}</span>
+      <span>Total a pagar: Bs {{ totalAPagar }}</span>
     </div>
   </header>
 
-  <main class="grid-productos">
-    @for (prod of productos; track prod.id){
-      <app-producto-card
-      [producto]="prod"
-      (agregar)="agregarAlCarrito($event)"></app-producto-card>
+  <main class="grid-cursos">
+    @for (curso of cursos; track curso.id) {
+      <app-curso-card
+        [curso]="curso"
+        [inscrito]="estaInscrito(curso.id)"
+        (inscribirse)="inscribir($event)"></app-curso-card>
     }
   </main>
 </div>
