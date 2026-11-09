@@ -21,17 +21,17 @@ button {
   align-self: end;
   padding: 9px 14px;
   color: white;
-  background: #176b55;
+  background: #0b08c7;
   border: 0;
   border-radius: 6px;
   cursor: pointer;
 }
 
 button:hover:not(:disabled) {
-  background: #10513f;
+  background: #321051;
 }
 
 button:disabled {
-  background: #66756f;
+  background: #c7c4dd;
   cursor: not-allowed;
 }

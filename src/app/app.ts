@@ -10,7 +10,7 @@ import { CursoCard } from './curso-card/curso-card';
 })
 export class App {
   cursos: Curso[] = [
-    { id: 1, nombre: 'Angular desde cero', horas: 24, precio: 180 },
+    { id: 1, nombre: 'Angular desde cero', horas: 25, precio: 180 },
     { id: 2, nombre: 'TypeScript práctico', horas: 18, precio: 140 },
     { id: 3, nombre: 'Diseño web', horas: 30, precio: 220 },
   ];
